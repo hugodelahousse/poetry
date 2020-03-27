@@ -33,6 +33,9 @@ class RunCommand(EnvCommand):
         if isinstance(script, dict):
             script = script["callable"]
 
+        if ':' not in script:
+            return self.env.execute("python", "-m", script, *args[1:])
+
         module, callable_ = script.split(":")
 
         src_in_sys_path = "sys.path.append('src'); " if self._module.is_in_src() else ""
