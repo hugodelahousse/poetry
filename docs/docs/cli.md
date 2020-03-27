@@ -371,6 +371,14 @@ You can execute it like so:
 poetry run my-script
 ```
 
+If your module doesn't have a function entrypoint, you can define your script
+like this:
+
+```toml
+[tool.poetry.scripts]
+server = "http.server"
+```
+
 Note that this command has no option.
 
 ## shell
